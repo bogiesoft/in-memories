@@ -1,0 +1,38 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\LikeDataSearchModel */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Like Data Models';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="like-data-model-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Like Data Model', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'id_user',
+            'id_like_cat',
+            'like_value',
+            'main_category',
+            // 'sub_category',
+            // 'create_date',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

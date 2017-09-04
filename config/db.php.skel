@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=localhost;dbname=jmakemon_in-memories',
+    'username' => 'jmakemon_in-memo',
+    'password' => 'simpleplan#3',
+    'charset' => 'utf8',
+];

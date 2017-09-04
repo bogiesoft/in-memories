@@ -1,0 +1,14 @@
+<?php
+
+$this->title = 'ตอบกลับกระทู้ ' . $topic->title;
+$this->params['breadcrumbs'][] = ['label' => 'webboard', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $topic->title, 'url' => ['/board/topic/' . $topic->id]];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="board-model-create">
+
+    <?= $this->render('layouts/_form_comment', [
+        'model' => $model,
+    ]) ?>
+
+</div>

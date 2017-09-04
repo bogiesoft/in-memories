@@ -1,0 +1,41 @@
+body{
+    background: #ff5050;
+    color: #fff;
+}
+article{
+    text-align: left;
+}
+footer{
+    text-align: left;
+    font-weight: bold;
+    color: #FFF;
+    padding: 50px 0;
+}
+.logo{
+    padding: 30px 0;
+    display: block;
+    outline: 0;
+    width: 50px;
+}
+.tright{
+    text-align: right;
+}
+.tleft{
+    text-align: left;
+}
+.tcenter{
+    text-align: center;
+}
+.fbold{
+    font-weight: bold;
+}
+.navbar-inverse .container{
+    width: 100%;
+}
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
+    color: #F78181;
+}
+
+.has-success .checkbox, .has-success .checkbox-inline, .has-success .control-label, .has-success .help-block, .has-success .radio, .has-success .radio-inline, .has-success.checkbox label, .has-success.checkbox-inline label, .has-success.radio label, .has-success.radio-inline label {
+    color: #81F79F;
+}

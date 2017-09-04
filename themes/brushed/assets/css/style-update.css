@@ -1,0 +1,338 @@
+/* 
+    Created on : Dec 26, 2016, 11:57:47 AM
+    Author     : wonderkide
+*/
+
+.page-white {
+    background: #fff;
+    padding: 50px 0;
+    position: relative;
+    z-index: 99;
+}
+
+.memory-box .meta-info{
+    //margin-bottom: 25px;
+    font-size: 0.8em;
+}
+.memory-box h3.title{
+    margin-bottom: 0;
+    display: inline;
+    -webkit-transition: opacity 0.1s linear 0s;	
+	   -moz-transition: opacity 0.1s linear 0s;
+		 -o-transition: opacity 0.1s linear 0s;
+		    transition: opacity 0.1s linear 0s;
+}
+.memory-box h3.title:hover{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    
+}
+#memory-view .container{
+}
+.memory-view, .gallery-detail-header, .book-shadow{
+    background: #26292E;
+}
+.book-shadow{
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 2px 5px 8px #ff4d4d;
+}
+.memory-view .header{
+    margin-top: 50px;
+    font-size: 36px;
+    text-align: center;
+}
+.memory-box .label{
+    position: absolute;
+    text-align: center;
+    height:30px;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius: 0;
+}
+
+.memory-box .label-text {
+			color:#fff;
+			position: relative;
+			z-index:500;
+			padding:5px;
+                        font-size: 1.2em;
+		}
+                .memory-box .label-text a{
+			color:#fff;
+                        font-size: 1.2em;
+		}
+.memory-box .label-top{
+    height:30px;
+    //top:-40px;
+    top: 0;
+}
+
+.panel{
+}
+.tab-content {
+    padding: 20px 5px 0;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #DE5E60;
+}
+#rules-modal{
+    padding-left: 0;
+}
+#rank-modal-button{
+    font-style: italic;
+}
+#rank-modal-button:hover, #rank-modal-button:focus, table a:hover, table a:focus, .comment-box a:hover{
+    color: #941e20;
+}
+.kv-sidenav .nav a {
+    font-size: 15px;
+    padding: 8px 15px;
+}
+
+/*============== input style to resetPW =================*/
+#form-reset-pass input,
+#form-reset-pass textarea {
+    border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+    border-radius: 0;
+	
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	
+	background: #26292E;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: auto;
+    padding: 15px;
+	margin: 0;
+	
+    resize: none;
+}
+
+#form-reset-pass input {
+    width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#form-reset-pass textarea {
+    width: 100%;
+	resize: vertical;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#form-reset-pass .submit {
+    background: #3C3F45;
+    color: #23262C;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 16px 40px;
+    text-align: center;
+    vertical-align: middle;
+    width: auto;
+	margin-top: 30px;
+	
+	-webkit-transition: background 0.1s linear 0s, color 0.1s linear 0s;	
+	   -moz-transition: background 0.1s linear 0s, color 0.1s linear 0s;
+		 -o-transition: background 0.1s linear 0s, color 0.1s linear 0s;
+		    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+}
+
+#form-reset-pass .submit:hover{
+    background: #DE5E60;
+    color: #FFFFFF;
+}
+
+/*============== input style BRUSHED =================*/
+.dark-form input,
+.dark-form textarea {
+    border: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+    border-radius: 0;
+	
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	
+	background: #26292E;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: auto;
+    padding: 15px;
+	margin: 0;
+	
+    resize: none;
+}
+
+.dark-form input {
+    width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.dark-form textarea {
+    width: 100%;
+	resize: vertical;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.dark-form .submit {
+    background: #3C3F45;
+    color: #23262C;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 16px 40px;
+    text-align: center;
+    vertical-align: middle;
+    width: auto;
+	margin-top: 30px;
+	
+	-webkit-transition: background 0.1s linear 0s, color 0.1s linear 0s;	
+	   -moz-transition: background 0.1s linear 0s, color 0.1s linear 0s;
+		 -o-transition: background 0.1s linear 0s, color 0.1s linear 0s;
+		    transition: background 0.1s linear 0s, color 0.1s linear 0s;
+}
+
+.dark-form .submit:hover{
+    background: #DE5E60;
+    color: #FFFFFF;
+}
+.dark-form input[disabled], .dark-form input[readonly], .dark-form input[disabled] {
+    background-color: #17191c;
+    opacity: 1;
+}
+
+#login-form.dark-form input[type=checkbox]{
+    width: initial;
+}
+/*============== input style to resetPW end =================*/
+
+
+/*.open > .dropdown-menu {
+    display: block;
+}*/
+.notify-show-list{
+    margin-bottom: 0;
+}
+
+#search-gallery-box .search-btn{
+    padding: 15px 20px;
+    background: #3C3F45;
+    //vertical-align: top;
+    top: 0;
+}
+#search-gallery-box .search-btn:hover{
+    background: #DE5E60;
+    color: #FFFFFF;
+}
+
+.comment-box p, .memory-view-footer p {
+    margin: 0 0 10px;
+}
+.comment-box .user-class{
+    font-size: 0.8em;
+}
+
+/*======================= gallery2 =============================*/
+.gallery-item .label{
+    position: absolute;
+    text-align: center;
+    height:30px;
+    //bottom:-40px;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.gallery-item .label-text {
+			color:#fff;
+			position: relative;
+			z-index:500;
+			padding:5px;
+                        font-size: 1.2em;
+		}
+                .gallery-item .label-text a{
+			color:#fff;
+                        font-size: 1.2em;
+		}
+.gallery-item .label-top{
+    height:30px;
+    top: 0;
+}
+
+#user-modal .modal-content{
+    background: #26292E;
+}
+#user-modal .modal-content .modal-footer{
+    border-top: 0;
+}
+
+/*=================================== Badge =============================*/
+.badge-wd {
+    display: inline-block;
+    position: absolute;
+    min-width: 10px;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #cb4437;
+    border-radius: 2px;
+    bottom: 10px;
+    left: 10px;
+}
+#game-rule .content{
+    margin-left: 20px;
+}
+#game .nav-tabs > li{
+    margin: 0 0 -1px 0;
+}
+#game .nav-tabs > li > a {
+    background: #fff;
+}
+#game .nav-tabs > li > a:hover, #game .nav-tabs > li > a:focus {
+    border: none;
+    background-color: #DE5E60;
+    color: #FFFFFF;
+}
+#game .nav-tabs > .active > a, #game .nav-tabs > .active > a:hover, #game .nav-tabs > .active > a:focus {
+    border: none;
+    background-color: #DE5E60;
+    color: #FFFFFF;
+    cursor: default;
+}
+#game .tab-content {
+    background: #fff;
+    padding: 1px 0;
+}
+#league-score .content{
+    min-height: 250px;
+}
+
+.league-scores-index .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #464a53;
+}

@@ -1,0 +1,142 @@
+/* ===== fonts ===== */
+@font-face {
+    font-family: RSU;
+    src: url('../fonts/RSU_Regular.eot');
+}
+@font-face {
+    font-family: RSU;
+    src: url('../fonts/RSU_Regular.ttf');
+}
+/* ===== default tags ===== */
+body{
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    background: #333333;
+}
+img{
+    border: 0;
+}
+a,a:visited,a:link{
+    text-decoration: none;
+    /* color: #B4B4B4; */
+}
+a:hover{
+    text-decoration: underline;
+}
+.clear{
+    clear: both;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+/* ===== frame layout ===== */
+#header{
+    height: 60px;
+    background: #333333;
+    border-bottom: 1px solid red;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+#left-panel{
+    float: left;
+    width: 17%;
+}
+#right-panel{
+    float: left;
+    width: 83%;
+    //min-height: 500px;
+}
+#main{
+    padding: 10px;
+    background: #595959;
+}
+#footer{
+    height: 55px;
+    background: #333333;
+    border-top: 1px solid red;
+    padding-top: 15px;
+    text-align: center;
+    color: #fff;
+}
+/* ===== tag #head ===== */
+#header #text-logo{
+    float: left;
+    color: #fff;
+    font-family: RSU;
+    font-size: 25px;
+    margin-left: 30px;
+}
+#header #logout{
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin:-3px 30px 0 0;
+    cursor: pointer;
+}
+/* ===== tag #main ===== */
+#main #content-admin{
+    border: 1px solid #aaa;
+    min-height: 600px;
+    background: #F5F5F5;
+    margin-left: 5px;
+}
+#main #content-admin-block{
+    padding: 15px;
+}
+.head-table{
+    background: url('../images/head_table_admin_page.png') repeat-x;
+    height: 30px;
+    text-align: left;
+    padding: 7px 20px 3px;
+    font-size: 18px;
+    color: #444;
+}
+#main #content-admin-block #block-form{
+    float: left;
+    width: 600px;
+}
+#main #content-admin-block #block-form .button-hover{
+    cursor: pointer;
+}
+#main #content-admin-block #block-form .rows-form{
+    width: 600px;
+    min-height: 25px;
+    margin-bottom: 15px;
+}
+#main #content-admin-block #block-form .rows-form .form-left{
+    float: left;
+    width: 150px;
+    height: 20px;
+    padding-top: 5px;
+    text-align: right;
+}
+#main #content-admin-block #block-form .rows-form .form-right{
+    float: left;
+    width: 440px;
+    min-height: 25px;
+    margin-left: 10px;
+}
+#main #content-admin-block #block-form .rows-form .form-right textarea{
+    width: 300px;
+    height: 150px;
+}
+#main #content-admin-block #block-form .rows-form .form-right input.input-text{
+    width: 300px;
+}
+#main #content-admin-block #block-form-detail{
+    float: left;
+    width: 300px;
+}
+#main #content-admin-block #block-form-detail .sub-block-detail{
+    width: 300px;
+    margin-bottom: 20px;
+}
+#main #content-admin-block #block-form-detail .sub-block-detail .errorSummary{
+    color: red;
+}
+#main #content-admin-block #block-form-detail .sub-block-detail .errorSummary li{
+    line-height: 20px;
+}

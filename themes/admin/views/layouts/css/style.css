@@ -1,0 +1,309 @@
+/* ===== page login ===== */
+#block-login{
+    width: 400px;
+    min-height: 200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #EBF4FB;
+    border: 2px solid #B7DDF2;
+    text-align: center;
+}
+#block-login p{
+    margin-top: 0px;
+    font-size: 15px;
+}
+#block-login .row-login{
+    width: 400px;
+    height: 30px;
+}
+#block-login .row-login .submit{
+    cursor: pointer;
+}
+#block-login .row-login .login-left{
+    float: left;
+    width: 100px;
+    height: 25px;
+    text-align: right;
+    padding-top: 5px
+}
+#block-login .row-login .login-right{
+    float: left;
+    width: 300px;
+    height: 30px;
+    text-align: left;
+}
+#block-login .row-login .login-right span{
+    margin-left: 18px;
+    color: red;
+    float: left;
+}
+#block-login .row-login .login-right input{
+    width: 190px;
+    height: 20px;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+/* ===== page list admin user ===== */
+img.thumb-clip{
+    display: block;
+    width: 150px;
+    height: 90px;
+    margin: 0 auto;
+}
+img.thumb-logo{
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+button i.icon-plus, button i.icon-minus  {
+    pointer-events: none;
+}
+
+.elm-center {
+    text-align: center;
+}
+
+.kick {
+    background: #a9dba9;
+}
+
+#crop-preview-pane #crop-preview-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+div.exam-img {
+    width: 300px;
+}
+
+.admin-main{
+    width: 100%;
+    height: 540px;
+    
+}
+.content-panel{
+    min-height: 550px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    background: #f2f2f2;
+    padding-left: 20px;
+    border: 2px solid #808080;
+}
+a.rank-up{
+    cursor: pointer;
+}
+a.cursor-pointer{
+    cursor: pointer;
+}
+
+/*================= checkbox slide style ON/OFF =================*/
+.checkboxSlide {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  //margin: 20px auto;
+  margin-left: 10px;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.checkboxSlide:after {
+  content: 'OFF';
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.checkboxSlide:before {
+  content: 'ON';
+  color: #27ae60;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.checkboxSlide label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.checkboxSlide input[type=checkbox] {
+  visibility: hidden;
+}
+.checkboxSlide input[type=checkbox]:checked + label {
+  left: 43px;
+}
+
+/*================= END checkbox slide style ON/OFF =================*/
+
+/* .squaredTwo */
+.squaredTwo {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 20px auto;
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.squaredTwo label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: -webkit-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+}
+.squaredTwo label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.squaredTwo label:hover::after {
+  opacity: 0.3;
+}
+.squaredTwo input[type=checkbox] {
+  visibility: hidden;
+}
+.squaredTwo input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.squaredTwo p.label {
+    position: absolute;
+    color: #000;
+    margin-left: 15px;
+    margin-top: 5px;
+    font-size:1.2em;
+    font-weight: normal;
+}
+
+/* .squaredThree */
+[class^=squaredThree] {
+  //width: 20px;
+  position: relative;
+  margin: auto;
+}
+[class^=squaredThree] label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(top, #222222 0%, #45484d 100%);
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
+}
+[class^=squaredThree] label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+[class^=squaredThree] label:hover::after {
+  opacity: 0.3;
+}
+[class^=squaredThree] input[type=checkbox] {
+  visibility: hidden;
+}
+[class^=squaredThree] input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+[class^=squaredThree] p.label{
+  position: absolute;
+  color: #000;
+  margin-left: 10px;
+  margin-top: 2px;
+  font-size: 1em;
+}
+
+/********************* any checkbox in page ********************/
+[class^=squaredFour] {
+  width: 20px;
+  position: relative;
+  margin: 20px auto;
+}
+[class^=squaredFour] label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fcfff4;
+  background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+[class^=squaredFour] label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid #333;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+[class^=squaredFour] label:hover::after {
+  opacity: 0.5;
+}
+[class^=squaredFour] input[type=checkbox] {
+  visibility: hidden;
+}
+[class^=squaredFour] input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+/* end .squaredFour */
