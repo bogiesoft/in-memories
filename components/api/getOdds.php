@@ -337,8 +337,23 @@ class getOdds{
                     //check kickoff today
                     if($check == $checkDate || ($check == ($checkDate+1) && (int)$time <= 6)){
                         
-                        $teams = trim($row->find('td', 1)->plaintext);
-                        $item['home'] = strip_tags(trim(str_replace("&nbsp;","",explode('vs', $teams)[0])));
+                        //$teams = trim($row->find('td', 1)->plaintext);
+                        $teams = $row->find('td', 1);
+                        $item['home'] = null;
+                        $item['away'] = null;
+                        foreach ($teams->find('span') as $tspan) {
+                            //var_dump($tspan->plaintext);exit();
+                            $spanid = $tspan->getAttribute('id');
+                                                        
+                            if(strpos($spanid,"home") !== FALSE && strpos($spanid,"redhome")===FALSE){
+                                $item['home'] = trim($tspan->plaintext);
+                            }
+                            if(strpos($spanid,"away") !== FALSE && strpos($spanid,"redaway")===FALSE){
+                                $item['away'] = trim($tspan->plaintext);
+                            }
+                        }
+                        
+                        /*$item['home'] = strip_tags(trim(str_replace("&nbsp;","",explode('vs', $teams)[0])));
                         $item['away'] = strip_tags(trim(str_replace("&nbsp;","",explode('vs', $teams)[1])));
                         
                         $home_clear_num = explode(' ', $item['home']);
@@ -348,7 +363,7 @@ class getOdds{
                         $away_clear_num = explode(' ', $item['away']);
                         if(count($away_clear_num)>1){
                             $item['away'] = trim(str_replace(explode(' ', $item['away'])[count($away_clear_num)-1],"",$item['away']));
-                        }
+                        }*/
 
                         $item['play_time'] = getOdds::generateTime($kickoff, $date);
                         //$item['home'] = trim($row->find('td', 1)->plaintext);
