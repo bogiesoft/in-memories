@@ -265,6 +265,15 @@ class getOdds{
             else if($team_h == 'Leicester'){
                 $return['team_h'] = 'Leicester City'; 
             }
+            else if($team_h == 'Newcastle'){
+                $return['team_h'] = 'Newcastle United'; 
+            }
+            else if($team_h == 'Swansea'){
+                $return['team_h'] = 'Swansea City'; 
+            }
+            else if($team_h == 'West Ham'){
+                $return['team_h'] = 'West Ham United'; 
+            }
             else{
                 $return['team_h'] = $team_h;
             }
@@ -284,6 +293,15 @@ class getOdds{
             else if($team_h == 'Leicester'){
                 $return['team_h'] = 'Leicester City'; 
             }
+            else if($team_h == 'Newcastle'){
+                $return['team_h'] = 'Newcastle United'; 
+            }
+            else if($team_h == 'Swansea'){
+                $return['team_h'] = 'Swansea City'; 
+            }
+            else if($team_h == 'West Ham'){
+                $return['team_h'] = 'West Ham United'; 
+            }
             else{
                 $return['team_a'] = $team_a;
             }
@@ -300,7 +318,7 @@ class getOdds{
 
             $html = file_get_html($url);
             $div = $html->find('div[id=masterdiv]', 0);
-            //var_dump($div);exit();
+            //var_dump($url);exit();
 
             foreach($div->find('table tr') as $key => $row) {
                 //var_dump(trim($row->find('td', 0)->plaintext));exit();
@@ -323,6 +341,14 @@ class getOdds{
                         $item['home'] = strip_tags(trim(str_replace("&nbsp;","",explode('vs', $teams)[0])));
                         $item['away'] = strip_tags(trim(str_replace("&nbsp;","",explode('vs', $teams)[1])));
                         
+                        $home_clear_num = explode(' ', $item['home']);
+                        if(count($home_clear_num)>1){
+                            $item['home'] = trim(str_replace(explode(' ', $item['home'])[0],"",$item['home']));
+                        }
+                        $away_clear_num = explode(' ', $item['away']);
+                        if(count($away_clear_num)>1){
+                            $item['away'] = trim(str_replace(explode(' ', $item['away'])[count($away_clear_num)-1],"",$item['away']));
+                        }
 
                         $item['play_time'] = getOdds::generateTime($kickoff, $date);
                         //$item['home'] = trim($row->find('td', 1)->plaintext);
