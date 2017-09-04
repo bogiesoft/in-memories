@@ -346,10 +346,10 @@ class getOdds{
                             $spanid = $tspan->getAttribute('id');
                                                         
                             if(strpos($spanid,"home") !== FALSE && strpos($spanid,"redhome")===FALSE){
-                                $item['home'] = trim($tspan->plaintext);
+                                $item['home'] = strip_tags(trim($tspan->plaintext));
                             }
                             if(strpos($spanid,"away") !== FALSE && strpos($spanid,"redaway")===FALSE){
-                                $item['away'] = trim($tspan->plaintext);
+                                $item['away'] = strip_tags(trim($tspan->plaintext));
                             }
                         }
                         
