@@ -55,7 +55,12 @@ class GamesController extends MyController
     public function actionIndex() {
         $this->isLogin();
         $league = LeagueModel::find()->all();
-        $match = MatchModel::find()->where(['active' => 0])->andWhere(['like', 'play_time', date('Y-m-d')])->all();
+        //$match = MatchModel::find()->where(['active' => 0])->andWhere(['like', 'play_time', date('Y-m-d')])->all();
+        $match = MatchModel::find()->where(['active' => 0])->andWhere([
+                    'or',
+                    ['like', 'play_time', date('Y-m-d')],
+                    ['like', 'play_time', date('Y-m-d',strtotime("+1 day"))],
+                ])->all();
         return $this->render('index', [
             'league' => $league,
             'match' => $match,
