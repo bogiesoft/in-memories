@@ -63,8 +63,11 @@ class getScoreResult{
     protected function getScoreESPN($url, $date){
 
         //$league_url = getScoreResult::getLeagueResultsUrlESPN($id);
-        //var_dump($url);exit();
+        //var_dump(date('Ymd', strtotime($date)));exit();
         if($url){
+            if($date){
+                $url = $url . '?date=' . date('Ymd', strtotime($date));
+            }
             require_once Yii::$app->basePath . '/components/simple_html_dom.php';
             //$url = $league_url;
 
