@@ -13,6 +13,8 @@ use app\models\UserModel;
 use app\models\LogZenyModel;
 use app\models\LeagueModel;
 use app\models\LeagueScoreSearch;
+use app\models\LogGameSearchModel;
+use yii\web\NotFoundHttpException;
 
 class GamesController extends MyController
 {
@@ -64,6 +66,28 @@ class GamesController extends MyController
         return $this->render('index', [
             'league' => $league,
             'match' => $match,
+        ]);
+    }
+    public function actionHistory() {
+        $this->isLogin();
+        $searchModel = new LogGameSearchModel();
+        $dataProvider = $searchModel->searchByUser(Yii::$app->request->queryParams);
+
+        return $this->render('history', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    public function actionTicket($id) {
+        $this->isLogin();
+        $log = LogGameModel::findOne($id);
+        if(!$log || $log->id_user != Yii::$app->user->id){
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
+        return $this->render('ticket', [
+            'log' => $log,
         ]);
     }
     
@@ -147,6 +171,7 @@ class GamesController extends MyController
             $zeny = (int)$zeny;
 
             $logGame = $this->updatePlayed(1, $zeny);
+            ExpController::createLogEXP(Yii::$app->user->id, $logGame, 'games', 'game football step');
             $this->updateZeny($zeny);
 
             $flag = FALSE;

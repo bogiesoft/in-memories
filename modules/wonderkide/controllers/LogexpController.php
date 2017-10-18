@@ -156,7 +156,7 @@ class LogexpController extends AdminController
         $date_to = date('Y-m-d');
         $user = null;
         
-        $category_all = ['gallery','memory','like','feel','comment','report'];
+        $category_all = ['gallery','memory','like','feel','comment','report','games'];
         $category = $category_all;
         
         if(Yii::$app->request->post()){

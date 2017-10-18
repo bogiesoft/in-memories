@@ -19,6 +19,7 @@ use Yii;
  * @property integer $h_score
  * @property integer $a_score
  * @property string $comment
+ * @property integer $active
  */
 class MatchModel extends \yii\db\ActiveRecord
 {

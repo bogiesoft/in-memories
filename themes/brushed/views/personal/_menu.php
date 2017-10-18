@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use kartik\widgets\SideNav;
 use app\components\MyController;
+use app\components\widgets\updateZeny;
 
 //add personal css file
 $this->registerCssFile(Yii::$app->assetManager->getPublishedUrl('@WDAsset')."/css/personal.css", [
@@ -19,7 +20,7 @@ $menu = [];
 //personal
 
 $personal = [];
-//array_push($personal, ['label' => 'ข้อมูลส่วนตัว', 'url' => Url::to([Yii::$app->seo->getUrl('personal')]), 'active' => ($item =='personal' ||$item =='personal/index')]);
+array_push($personal, ['label' => 'ข้อมูลส่วนตัว', 'url' => Url::to([Yii::$app->seo->getUrl('personal')]), 'active' => ($item =='personal' ||$item =='personal/index')]);
 array_push($personal, ['label' => 'จัดการข้อมูลส่วนตัว <i class="fa fa-user fa-lg" aria-hidden="true"></i>', 'url' => Url::to([Yii::$app->seo->getUrl('personal/editprofile')]), 'active' => ($item =='personal/editprofile')]);
 if(MyController::checkPermissionRank('img-profile')){
     array_push($personal, ['label' => 'จัดการรูปโปรไฟล์ <i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i>', 'url' => Url::to([Yii::$app->seo->getUrl('personal/photo')]), 'active' => ($item =='personal/photo')]);
@@ -35,3 +36,8 @@ echo SideNav::widget([
     //'heading' => $heading,
     'items' => $menu
 ]);
+?>
+
+<section id="update-zeny">
+    <?= updateZeny::widget(); ?>
+</section>

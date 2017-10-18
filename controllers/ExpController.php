@@ -123,7 +123,7 @@ class ExpController extends Controller
         }
     }
     
-    public function createLogEXP($user, $id_cat, $cat, $detail) {
+    public function createLogEXP($user, $id_cat, $cat, $detail, $bonus = FALSE) {
         $status = SettingModel::findOne(['type'=>'exp_for_comment']);
         if($status->setting){
             $exp = \app\models\ExpModel::findOne(['category'=>$cat]);
@@ -133,7 +133,12 @@ class ExpController extends Controller
             $model->id_cat = $id_cat;
             $model->category = $cat;
             $model->detail = $detail;
-            $model->exp = $exp->exp;
+            if($bonus){
+                $model->exp = $exp->exp_bonus;
+            }
+            else{
+                $model->exp = $exp->exp;
+            }
             $model->create_time = date('Y-m-d');
             $model->active = 0;
             if($model->save()){

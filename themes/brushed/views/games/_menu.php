@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Url;
 use kartik\widgets\SideNav;
-use app\components\MyController;
 use app\components\widgets\updateZeny;
 
 //add personal css file
@@ -19,7 +18,7 @@ $menu = [];
 
 
 //message alert
-array_push($menu, ['label' => 'การแจ้งเตือน', 'icon' => 'exclamation-sign', 'url' => Url::to([Yii::$app->seo->getUrl('notify')]), 'active' => ($item =='notify')]);
+array_push($menu, ['label' => 'ประวัติการเล่นเกม', 'icon' => 'play-circle', 'url' => Url::to([Yii::$app->seo->getUrl('games/history')]), 'active' => ($item =='games'||$item =='games/history'||$item =='games/ticket')]);
 
 echo SideNav::widget([
     'type' => $type,

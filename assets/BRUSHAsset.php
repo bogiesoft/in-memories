@@ -41,6 +41,7 @@ class BRUSHAsset extends AssetBundle {
         'js/jquery.tweet.js',
         'js/plugins.js',
         'js/main.js',
+        'js/bootbox.min.js',
         
     ];
     public $depends = [

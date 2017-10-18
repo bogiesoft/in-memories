@@ -56,7 +56,7 @@ use kartik\widgets\DatePicker;
             ],
             'home',
             'away',
-            'play_time:datetime',
+            'play_time',
             // 'h_odds',
             // 'a_odds',
             // 'bet',

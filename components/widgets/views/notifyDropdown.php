@@ -28,6 +28,31 @@ use app\models\RankModel;
                 </a>
                 <div class="noti-trigger"><span href="#"><i title="<?= $row->active == 0 ? 'ทำเครื่องหมายว่าอ่านแล้ว':'อ่านแล้ว' ?>" class="selected-noti-trigger fa <?= $row->active == 0 ? 'fa-circle-o':'fa-circle' ?>" aria-hidden="true" data-selected="<?= $row->id ?>" data-active="<?= $row->active == 0 ? 'false':'true' ?>"></i></span></div>
             </div>
+        <?php } else if($row->category == 'games'){ 
+            if($row->detail == 'win'){
+                $content = 'ยินดีด้วย!';
+                $bet = 'ชนะ';
+            }
+            else{
+                $bet = 'แพ้';
+                $content = 'เสียใจด้วย!';
+            }
+        ?>
+            <div class="notify-items">
+                <a href="<?= $row->url ?>" class="list-group-item notify-show <?= $row->active == 0 ? 'non-active':'' ?>" data-selected="<?= $row->id ?>">
+                    <div class="noti-img">
+                        <?= Html::img(\app\models\MainDataModel::getLogoUrl(), ['class' => 'img-responsive']) ?>
+                    </div>
+                    <div class="noti-content">
+                        <p><?= $content ?> ท่าน<strong style="font-weight:bold;"><?= $bet ?></strong>เกมบอลสเต็ป</p>
+                        <p class="time"><span class="fa fa-futbol-o"></span> <?= helpFunction::humanTiming(strtotime($row->create_time)) ?></p>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                </a>
+                <div class="noti-trigger"><span href="#"><i title="<?= $row->active == 0 ? 'ทำเครื่องหมายว่าอ่านแล้ว':'อ่านแล้ว' ?>" class="selected-noti-trigger fa <?= $row->active == 0 ? 'fa-circle-o':'fa-circle' ?>" aria-hidden="true" data-selected="<?= $row->id ?>" data-active="<?= $row->active == 0 ? 'false':'true' ?>"></i></span></div>
+            </div>
         <?php }else{ 
         $user = UserModel::findOne($row->id_user);
         $icon = '';

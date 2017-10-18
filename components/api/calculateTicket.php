@@ -7,6 +7,8 @@ use app\models\LogZenyModel;
 use app\models\LogGameModel;
 use app\models\MatchTicketModel;
 use Yii;
+use app\controllers\ExpController;
+use app\controllers\NotifyController;
 
 class calculateTicket{
     
@@ -35,9 +37,12 @@ class calculateTicket{
                 if($zeny){
                     calculateTicket::updateZeny($row, $zeny);
                     calculateTicket::updateLog($row);
+                    ExpController::createLogEXP(Yii::$app->user->id, $row->id_game_log, 'games', 'game football step bonus');
+                    NotifyController::creatNotify($row->id_user, $row->id_game_log, 'games', 'games', 'win', '/games/ticket/'.$row->id_game_log);
                 }
                 else{
                     calculateTicket::updateFailLog($row);
+                    NotifyController::creatNotify($row->id_user, $row->id_game_log, 'games', 'games', 'lost', '/games/ticket/'.$row->id_game_log);
                 }
                 
                 $flag = 111;
@@ -90,6 +95,9 @@ class calculateTicket{
         //$sumScore = $model->h_score - $model->a_score;
         //$sum = $sumScore - $model->bet;
         //var_dump($sum);
+        if($model->active == 0){
+            return FALSE;
+        }
         if($model->bet_team == 'h'){
             $sum = $model->h_score - ($model->a_score + $model->bet);
         }

@@ -8,7 +8,7 @@ Modal::begin([
     'id' => 'user-modal',
     //'htmlOptions' => ['style' => 'width: 200px; height: 300px']
     'size' => Modal::SIZE_SMALL,
-    'footer' => Html::a('ข้อมูลส่วนตัว', [Yii::$app->seo->getUrl('personal/editprofile')], ['class' => 'button button-mini pull-left']).
+    'footer' => Html::a('ข้อมูลส่วนตัว', [Yii::$app->seo->getUrl('personal')], ['class' => 'button button-mini pull-left']).
                 Html::a('ออกจากระบบ', [Yii::$app->seo->getUrl('site/logout')], ['class' => 'button button-mini','data-method' => 'post']),
 ]);
 ?>

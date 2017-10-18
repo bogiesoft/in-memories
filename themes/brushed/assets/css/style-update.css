@@ -336,3 +336,11 @@
 .league-scores-index .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #464a53;
 }
+
+.bootbox .modal-title{
+    color: #7F8289;
+    font-size: 1.1em;
+}
+.bootbox .modal-body{
+    font-size: 0.9em;
+}

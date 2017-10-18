@@ -7,7 +7,7 @@ use app\components\MyController;
             <div class="col-md-12">
                 <div class="tabbable">
                     <ul class="nav nav-tabs" id="personalTab">
-                        <li class="<?= $active=='personal'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('personal/editprofile') ?>">ข้อมูลส่วนตัว</a></li>
+                        <li class="<?= $active=='personal'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('personal') ?>">ข้อมูลส่วนตัว</a></li>
                         <li class="<?= $active=='message'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('personal/inbox') ?>">ข้อความ</a></li>
                         <li class="<?= $active=='memory'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('memory/manage') ?>">MEmory</a></li>
                         <li class="<?= $active=='gallery'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('gallery/personal') ?>">Gallery</a></li>
@@ -17,6 +17,7 @@ use app\components\MyController;
                         <?php if(MyController::checkPermissionRank('expend')){ ?>
                         <li class="<?= $active=='expend'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('expend') ?>">Expend</a></li>
                         <?php } ?>
+                        <li class="<?= $active=='games'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('games/history') ?>">Games</a></li>
                         <li class="<?= $active=='notify'?'active':''?>"><a href="<?= Yii::$app->seo->getUrl('notify') ?>">การแจ้งเตือน</a></li>
                     </ul>
                     <div class="tab-content">

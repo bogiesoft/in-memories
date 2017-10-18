@@ -2,6 +2,7 @@
 use yii\helpers\Url;
 use kartik\widgets\SideNav;
 use app\components\MyController;
+use app\components\widgets\updateZeny;
 
 //add personal css file
 $this->registerCssFile(Yii::$app->assetManager->getPublishedUrl('@WDAsset')."/css/personal.css", [
@@ -29,3 +30,7 @@ echo SideNav::widget([
     //'heading' => $heading,
     'items' => $menu
 ]);
+?>
+<section id="update-zeny">
+    <?= updateZeny::widget(); ?>
+</section>

@@ -238,11 +238,8 @@ else{
                 if(data == 1){
                     hideFormUpload();
                 }else{
-                    alert('WTFWTFWTF');
-                    //alert(r);
-                    //location.reload();
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาลองใหม่ภายหลัง", null);
                 }
-               //alert(data); // show response from the php script.
            }
          });
 

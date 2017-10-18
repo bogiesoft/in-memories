@@ -101,7 +101,7 @@ class getOdds{
             $row['home'] = $resetTeam['team_h'];
             $row['away'] = $resetTeam['team_a'];
         }
-        $model = MatchModel::find()->where(['id_league' => $id, 'home' => $row['home'], 'away' => $row['away']])->one();
+        $model = MatchModel::find()->where(['id_league' => $id, 'home' => $row['home'], 'away' => $row['away'], 'play_time' => $row['play_time']])->one();
         
         if($model){
             

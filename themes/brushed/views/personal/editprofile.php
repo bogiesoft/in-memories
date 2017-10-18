@@ -1,7 +1,6 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\components\widgets\updateZeny;
 use app\components\helpFunction;
 use yii\widgets\ActiveForm;
 
@@ -24,9 +23,6 @@ if($modelUser){
             
         </section>
         <?php } */?>
-        <section id="update-zeny">
-            <?= updateZeny::widget(); ?>
-        </section>
     </div>
     <div class="col-md-8">
         <section id="show-profile" class="profile-detail">

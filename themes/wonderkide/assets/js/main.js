@@ -229,7 +229,8 @@ function getExpend(date){
                     $(".expend-list").append('<div class="text-center"><a href="/expend/?date='+date+'">รายละเอียด</a></div>');
                 }
                 else{
-                    alert("เกิดข้อผิดพลาด! การเชื่อมต่อล้มเหลว");
+                    //alert("เกิดข้อผิดพลาด! การเชื่อมต่อล้มเหลว");
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "การเชื่อมต่อล้มเหลว", null);
                 }
                 
             }
@@ -256,30 +257,48 @@ function changeNavActive(){
 
 function checkZenyBet(val) {
     if(isNaN(val)){
-        alert("กรุณากรอกจำนวนเงินเป็นตัวเลข!");
+        //alert("กรุณากรอกจำนวนเงินเป็นตัวเลข!");
+        bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณากรอกจำนวนเงินเป็นตัวเลข!", null);
         document.getElementById("zenybet").value = "";
     }
 }
 
 
 function updateZeny(id){
-    if(confirm("ท่านต้องการจะรับเงินเลยใช่ไหม?")){
-        var url = "/games/updatezeny?log="+id;
-        $.ajax({
-            type: "GET",
-            url: url,
-            cache: false,
-            success: function(msg){
-                if(msg==1){
-                    alert("เงินทั้งหมดได้เข้าบัญชีคุญเรียบร้อยแล้ว!");
-                    window.location.reload();
-                }
-                else{
-                    alertMessege(msg);
-                }
+    bootbox.confirm({ 
+        size: "small",
+        message: "ท่านต้องการจะรับเงินเลยใช่ไหม?", 
+        buttons: {
+            confirm: {
+                label: 'ใช่',
+                className: 'btn-danger'
+            },
+            cancel: {
+                label: 'ไม่',
+                className: 'btn-default'
             }
-        });
-    }
+        },
+        callback: function(result){ 
+            if(result){
+                var url = "/games/updatezeny?log="+id;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    cache: false,
+                    success: function(msg){
+                        if(msg==1){
+                            //alert("เงินทั้งหมดได้เข้าบัญชีคุญเรียบร้อยแล้ว!");
+                            bootboxalert("small", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "เงินทั้งหมดได้เข้าบัญชีคุญเรียบร้อยแล้ว", "reload");
+                            //window.location.reload();
+                        }
+                        else{
+                            alertMessege(msg);
+                        }
+                    }
+                });
+            }
+        }
+    });
 }
 
 
@@ -288,43 +307,57 @@ function alertMessege(status){
     
     /******check validate****/
     if(status==1)
-        alert('ท่านจำเป็นต้องลงชื่อเข้าใช้ระบบก่อนที่จะเล่นเกมส์'); //login
+        //alert('ท่านจำเป็นต้องลงชื่อเข้าใช้ระบบก่อนที่จะเล่นเกมส์'); //login
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "ท่านจำเป็นต้องลงชื่อเข้าใช้ระบบก่อนที่จะเล่นเกมส์", null);
     else if(status==0)
-        alert('กรุณาเลือกทีมที่ต้องการเล่นก่อนทำรายการ');  //selected
+        //alert('กรุณาเลือกทีมที่ต้องการเล่นก่อนทำรายการ');  //selected
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาเลือกทีมที่ต้องการเล่นก่อนทำรายการ", null);
     else if(status==37)
-        alert("กรุณาเลือกทีมอย่างน้อย 3 ทีม แต่ไม่เกิน 7 ทีม"); //select 3-10
+        //alert("กรุณาเลือกทีมอย่างน้อย 3 ทีม แต่ไม่เกิน 7 ทีม"); //select 3-10
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาเลือกทีมอย่างน้อย 3 ทีม แต่ไม่เกิน 7 ทีม", null);
     else if(status==101)
-        alert('ท่านยังไม่สามารถเลือกการเล่นคู่นี้ได้ในขณะนี้'); //not post
+        //alert('ท่านยังไม่สามารถเลือกการเล่นคู่นี้ได้ในขณะนี้'); //not post
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "ท่านยังไม่สามารถเลือกการเล่นคู่นี้ได้ในขณะนี้", null);
     else if(status==201)
-        alert('ไม่มีสเต็ปที่ยังไม่ประมวลผล'); //check step log
+        //alert('ไม่มีสเต็ปที่ยังไม่ประมวลผล'); //check step log
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "ไม่มีสเต็ปที่ยังไม่ประมวลผล", null);
     
     /******server*****/
     else if(status==501)
-        alert('เกิดข้อผิดพลาดในการเชื่อมต่อ server');//server error
+        //alert('เกิดข้อผิดพลาดในการเชื่อมต่อ server');//server error
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "เกิดข้อผิดพลาดในการเชื่อมต่อ server", null);
     
     else if(status==500)
-        alert('ขาดการเชื่อมต่อกับ server โปรดลองใหม่อีกครั้ง'); //server error
+        //alert('ขาดการเชื่อมต่อกับ server โปรดลองใหม่อีกครั้ง'); //server error
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "ขาดการเชื่อมต่อกับ server โปรดลองใหม่อีกครั้ง", null);
     
     /*******zeny******/
     else if(status==8)
-        alert('zeny ของคุณมีไม่พอ\nต้องการ zeny เพิ่มหรือ?\nขอร้องกูซิ LOL'); //not zeny
+        //alert('zeny ของคุณมีไม่พอ\nต้องการ zeny เพิ่มหรือ?\nขอร้องกูซิ LOL'); //not zeny
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "zeny ของคุณมีไม่พอ ต้องการ zeny เพิ่มหรือ? ขอร้อง Admin ซิ :)", null);
     else if(status==88)
-        alert('กรุณาใส่จำนวนเงิน zeny'); //not zeny
+        //alert('กรุณาใส่จำนวนเงิน zeny'); //not zeny
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาใส่จำนวนเงิน zeny", null);
     else if(status==888)
-        alert('กรุณาใส่จำนวนเงิน zeny ขั้นต่ำ 50 แต่ไม่เกิน 10,000'); //zeny min max
+        //alert('กรุณาใส่จำนวนเงิน zeny ขั้นต่ำ 50 แต่ไม่เกิน 10,000'); //zeny min max
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาใส่จำนวนเงิน zeny ขั้นต่ำ 50 แต่ไม่เกิน 10,000", null);
     
     else if(status==300)
-        alert('ท่านไม่สามารถเล่นเกมส์ได้เนื่องจากอยู่นอกเวลา 12.00 - 03.00');
+        //alert('ท่านไม่สามารถเล่นเกมส์ได้เนื่องจากอยู่นอกเวลา 12.00 - 03.00');
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "ท่านไม่สามารถเล่นเกมส์ได้เนื่องจากอยู่นอกเวลา 12.00 - 03.00", null);
     else if(status==301)
-        alert('คู่ที่ท่านเลือกไม่ได้เปิดให้เล่นในวันนี้');
+        //alert('คู่ที่ท่านเลือกไม่ได้เปิดให้เล่นในวันนี้');
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "คู่ที่ท่านเลือกไม่ได้เปิดให้เล่นในวันนี้", null);
     else if(status==302)
-        alert('คู่ที่ท่านเลือกได้ทำการเริ่มแข่งแล้ว');
+        //alert('คู่ที่ท่านเลือกได้ทำการเริ่มแข่งแล้ว');
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "คู่ที่ท่านเลือกได้เริ่มแข่งไปแล้ว", null);
     else if(status==999)
-        alert('ทำรายการเสร็จสิ้น!')    ; //error add
-    
+        //alert('ทำรายการเสร็จสิ้น!'); //error add
+        bootboxalert("null", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "ทำรายการเสร็จสิ้น", null);
     
     else if(status==191)
-        alert('Mother fucker!!!')    ; //WTF
+        //alert('Mother fucker!!!'); //WTF
+        bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "Mother fucker!!!", null);
 }
 
 function imageCrop(){
@@ -344,8 +377,9 @@ function imageCrop(){
         success: function(r){
 
                 if(r == 1){
-                    alert('เปลี่ยนรูปโปรไฟล์สำเร็จ!');
-                    window.location = "/personal";
+                    //alert('เปลี่ยนรูปโปรไฟล์สำเร็จ!');
+                    bootboxalert("small", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "เปลี่ยนรูปโปรไฟล์สำเร็จ", "/personal");
+                    //window.location = "/personal";
                 }
         }
     });
@@ -369,7 +403,8 @@ function changeTag(action) {
         url: url,
         success: function(r){
                 if(r == 1){
-                    alert('เปลี่ยนรูปโปรไฟล์สำเร็จ!');
+                    //alert('เปลี่ยนรูปโปรไฟล์สำเร็จ!');
+                    bootboxalert("small", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "อัพเดทข้อมูลสำเร็จ", null);
                 }
         }
     });
@@ -383,7 +418,8 @@ function getCaption(data){
             data:"selected="+data,
             success: function(image){
                 if(image==0){
-                    alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    //alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> เกิดข้อผิดพลาด!", "กรุณาลองใหม่อีครั้งภายหลัง", null);
                 }
                 else{
                     cut = image.split(",");
@@ -439,7 +475,8 @@ function updateSortGallery(data){
             data:"data="+data,
             success: function(msg){
                 if(msg==0){
-                    alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    //alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> เกิดข้อผิดพลาด!", "กรุณาลองใหม่อีครั้งภายหลัง", null);
                 }
                 return;
 
@@ -455,7 +492,8 @@ function changeRead(data, action){
             data:"selected="+data,
             success: function(success){
                 if(success==0){
-                    alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    //alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> เกิดข้อผิดพลาด!", "กรุณาลองใหม่อีครั้งภายหลัง", null);
                 }
                 else{
                     return;
@@ -505,4 +543,27 @@ function notifyAnimate(action, title, content){
 }
 function clearNotify(){
     $( "#notify-access-caption" ).hide( selectedEffect, options, 500 );
+}
+function bootboxalert(size, title, message, callback){
+    bootbox.alert({ 
+        size: size,
+        title: title,
+        message: message, 
+        buttons: {
+            ok: {
+                label: 'ตกลง',
+                className: 'btn-danger'
+            }
+        },
+        callback: function(){ 
+            if(callback){
+                if(callback=="reload"){
+                    window.location.reload();
+                }
+                else{
+                    window.location = callback;
+                }
+            }
+        }
+    });
 }

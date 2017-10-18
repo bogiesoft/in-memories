@@ -34,7 +34,8 @@ function updateAlertActive(data, action){
             data:"selected="+data,
             success: function(success){
                 if(success==0){
-                    alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    //alert("เกิดข้อผิดพลาด! กรุณาลองใหม่อีครั้งภายหลัง");
+                    bootboxalert("small", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "กรุณาลองใหม่อีครั้งภายหลัง", null);
                 }
                 else{
                     return;

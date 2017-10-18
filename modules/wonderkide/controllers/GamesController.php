@@ -64,7 +64,7 @@ class GamesController extends AdminController
                     'type' => 'danger',
                     'duration' => 5000,
                     'icon' => 'fa fa-users',
-                    'message' => 'Please try again.',
+                    'message' => 'Some match are not updated.',
                     'title' => 'Calculate error!!',
                     'positonY' => 'top',
                     'positonX' => 'right'

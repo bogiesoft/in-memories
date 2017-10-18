@@ -82,7 +82,7 @@ class getScoreResult{
                 
                 $result[] = $item;
             }
-            var_dump($result);exit();
+            //var_dump($result);exit();
             if(!empty($result)){
                 return $result;
             }

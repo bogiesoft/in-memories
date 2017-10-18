@@ -1,7 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\helpers\Url;
-use app\components\widgets\updateZeny;
 use app\components\helpFunction;
 if($modelUser){
 ?>
@@ -9,9 +7,6 @@ if($modelUser){
 
                         <div class="col-md-4">
                             <?= $this->render('_menu') ?>
-                            <section id="update-zeny">
-                                <?= updateZeny::widget(); ?>
-                            </section>
                         </div>
                         <div class="col-md-8">
                             <section class="profile-detail">
@@ -48,13 +43,16 @@ if($modelUser){
                                                 <th>Rank :</th>
                                                 <td><?= $rank->name ?> :: <?= $rank->name_th ?></td>
                                             </tr>
+                                            <tr>
+                                                <th>Money :</th>
+                                                <td><label><?= $modelUser->zeny ?></label> Zeny</td>
+                                            </tr>
                                         </table>
                                         <?php //echo Html::a('ข้อมูลส่วนตัว', ['/site/personal'], ['class' => 'btn btn-primary btn-sm pull-left']) ?>
-                                        <?php //echo Html::a('แก้ไขข้อมูล', ['/personal/editprofile'], ['class' => 'btn btn-warning btn-sm pull-right']) ?>
+                                        <?php echo Html::a('แก้ไขข้อมูล', ['/personal/editprofile'], ['class' => 'btn btn-warning btn-sm pull-right']) ?>
                                     </div>
                                 </div>
                             </section>
-                            <?php /*
                             <?php if($modelZeny){ ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -73,8 +71,8 @@ if($modelUser){
                                             <?php                        
                                             foreach ($modelZeny as $row) { ?>
                                             <tr>
-                                                <td><?= $row->update_time ?></td>
-                                                <td><?= $row->text ?></td>
+                                                <td><?= helpFunction::dateTime($row->update_time) ?></td>
+                                                <td class="<?= $row->status == 1 ? 'text-success':'text-danger' ?>"><?= $row->text ?></td>
                                                 <td><?= $row->zeny ?></td>
                                             </tr>
 
@@ -82,11 +80,11 @@ if($modelUser){
                                         </tbody>
                                     </table>
                                     <?php //echo Html::a('ข้อมูลส่วนตัว', ['/site/personal'], ['class' => 'btn btn-primary btn-sm pull-left']) ?>
-                                    <?= Html::a('แก้ไขข้อมูล', ['/personal/editprofile'], ['class' => 'btn btn-warning btn-sm pull-right']) ?>
+                                    <?php // echo Html::a('แก้ไขข้อมูล', ['/personal/editprofile'], ['class' => 'btn btn-warning btn-sm pull-right']) ?>
                                 </div>
                             </div>
                             <?php } ?>
-                            <?php if($modelGame){ ?>
+                            <?php /*if($modelGame){ ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <h3 class="panel-title">ประวัติการเล่น Game</h3>
