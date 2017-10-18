@@ -344,3 +344,20 @@
 .bootbox .modal-body{
     font-size: 0.9em;
 }
+
+/*****************************  history ticket ******************************/
+.table.ticket .ticket-success{
+    background-color: #66ff66;
+}
+.table.ticket .ticket-half-success{
+    background-color: #ddff99;
+}
+.table.ticket .ticket-danger{
+    background-color: #ff9999;
+}
+.table.ticket .ticket-warning{
+    background-color: #ffc299;
+}
+.table.ticket .ticket-none{
+    background-color: #fff;
+}

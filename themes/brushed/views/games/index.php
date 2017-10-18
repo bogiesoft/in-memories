@@ -221,22 +221,37 @@ use app\models\LogGameModel;
                        alertMessege(team);
                     }
                     else{
-                        if(confirm(team+" คลิก OK เพื่อยืนยันการเล่น หรือ Cancel เพื่อยกเลิกการเล่น")){
-                            $.ajax({
-                                    url: "/games/addmatch",
-                                    type: 'post',
-                                    data: post,
-                                    success: function (status) {
-                                       if(!isNaN(status)){
-                                            alertMessege(status);
-                                         }
-                                       else{
-                                            alertMessege(999);
-                                            window.location.reload();
-                                       }
-                                    }
-                               });
-                        }
+                        bootbox.confirm({ 
+                            //size: "large",
+                            message: team, 
+                            buttons: {
+                                confirm: {
+                                    label: 'เล่น',
+                                    className: 'btn-danger'
+                                },
+                                cancel: {
+                                    label: 'แก้ไข',
+                                    className: 'btn-default'
+                                }
+                            },
+                            callback: function(result){ 
+                                if(result){
+                                    $.ajax({
+                                        url: "/games/addmatch",
+                                        type: 'post',
+                                        data: post,
+                                        success: function (status) {
+                                           if(!isNaN(status)){
+                                                alertMessege(status);
+                                             }
+                                           else{
+                                                alertMessege(999);
+                                           }
+                                        }
+                                    });
+                                }
+                            }
+                        });
                     }
                  }
             });

@@ -1,6 +1,4 @@
 <?php
-use yii\helpers\Html;
-use yii\grid\GridView;
 use app\components\widgets\Ticket;
 ?>
 <?php $this->beginContent('@app/views/layouts/_tab_personal.php', ['active' => 'games']); ?>
@@ -15,7 +13,7 @@ use app\components\widgets\Ticket;
                 <div class="panel-body">
                     <section class="games-ticket">
                         <div class="table-responsive">
-                            <?= Ticket::widget(['log' => $log]); ?>
+                            <?= Ticket::widget(['log' => $log, 'history' => true]); ?>
                         </div>
                     </section>
                 </div>

@@ -353,7 +353,7 @@ function alertMessege(status){
         bootboxalert("null", "<i class='fa fa-times-circle' aria-hidden='true'></i> มีบางอย่างผิดพลาด", "คู่ที่ท่านเลือกได้เริ่มแข่งไปแล้ว", null);
     else if(status==999)
         //alert('ทำรายการเสร็จสิ้น!'); //error add
-        bootboxalert("null", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "ทำรายการเสร็จสิ้น", null);
+        bootboxalert("null", "<i class='fa fa-check-circle' aria-hidden='true'></i> เรียบร้อย", "ทำรายการเสร็จสิ้น", "reload");
     
     else if(status==191)
         //alert('Mother fucker!!!'); //WTF
