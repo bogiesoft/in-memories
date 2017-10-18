@@ -59,7 +59,7 @@ if($ticket) { ?>
             <label>จำนวนคู่ : <span> <?= count($ticket); ?></span></label>&nbsp;&nbsp;&nbsp;
             <label>จำนวนเงิน : <span> <?= $log->zeny ?></span></label>
             <?php if($history): ?>
-            &nbsp;&nbsp;&nbsp;<label>สรุปผล : <?= $log->status == 1 ? "ชนะ":"แพ้" ?></label>
+            &nbsp;&nbsp;&nbsp;<label>สรุปผล : <?php if($log->status > 0){echo "ชนะ";}else if($log->status == 0){echo "ยังไม่ได้ตรวจสอบ";}else{echo "แพ้";} ?></label>
             &nbsp;&nbsp;&nbsp;<label>ได้รับเงิน : <?= $log->status == 1 ? app\components\widgets\Ticket::getZeny($log->id_game_log)." zeny":"0" ?></label>
             <?php endif; ?>
       </div>
