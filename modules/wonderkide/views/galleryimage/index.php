@@ -31,7 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'detail',
             // 'file_name',
             // 'real_name',
-             'path',
+             //'path',
+            [
+                'attribute' => 'path',
+
+                'headerOptions' => ['class' => 'text-center'],
+                'format' => 'html',
+                'value' => function($data) {
+                    return Html::img($data->path.$data->real_name, ['class' => 'img-responsive']);
+                },
+            ],
              'sorting',
 
             ['class' => 'yii\grid\ActionColumn'],

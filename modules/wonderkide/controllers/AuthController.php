@@ -18,7 +18,8 @@ class AuthController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/wonderkide');
         } else {
-            return $this->render('login', ['model' => $model]);
+            $this->layout = 'login';
+            return $this->render('login_2', ['model' => $model]);
         }
     }
 
@@ -43,7 +44,7 @@ class AuthController extends Controller {
                 $userModel->auth_key = Yii::$app->security->generateRandomString();
                 $userModel->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
                 $userModel->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
-                $userModel->email = $username . '@doofootball.com';
+                $userModel->email = $username . '@in-memories.com';
                 $userModel->status = 10;
                 $userModel->created_at = time();
                 $userModel->updated_at = time();

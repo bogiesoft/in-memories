@@ -89,13 +89,14 @@ $config = [
         '@BEAsset' => '@app/themes/admin/views/layouts',
         '@BRUSHAsset' => '@app/themes/brushed/assets',
         '@WHITEAsset' => '@app/themes/white/assets',
+        '@GENAsset' => '@app/themes/gentelella/assets',
     ],
     'modules' => [
         'wonderkide' => [
             'class' => 'app\modules\wonderkide\Module',
             'defaultRoute' => 'main',
             //'layoutPath' => '@app/themes/backend/layouts',
-            'layoutPath' => '@app/themes/admin/views/layouts',
+            'layoutPath' => '@app/themes/gentelella/views/layouts',
             'layout' => 'main',
         ],
         'gridview' =>  [
