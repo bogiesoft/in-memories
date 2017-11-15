@@ -244,4 +244,7 @@ class SiteController extends MyController
         }
         return 0;
     }
+    public function actionPrivacypolicy() {
+        return $this->render('privacy_policy');
+    }
 }
